@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}    % utf8 support       %!!!!!!!!!!!!!!!!!!!!
+\usepackage[T1]{fontenc}       % code for pdf file  %!!!!!!!!!!!!!!!!!!!!
+
+\title{List of Publications}
+\author{Enrico Facca}
+\date{\today}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+%\usepackage[numbers]{natbib}
+
+%\bibliographystyle{plainyr-rev}
+\usepackage[backend=biber,maxbibnames=10,defernumbers=true,sorting=ydnt]{biblatex}
+
+\addbibresource{strings.bib} 
+\addbibresource{pubblication_ef.bib} 
+
+\makeatletter
+\newcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+\begin{document}
+\maketitle
+%\nocite{*}
+%\renewcommand{\refname}{}
+%\bibliographystyle{federico}
+%\bibliographystyle{habbrvyr}
+
+
+%\bibliographystyle{abbrvnat}
+%\bibliography{mypubl}
+%Dichiarazione resa ai sensi degli artt. 46 e 47 DPR N. 445/2000
+%\begin{refsection}[strings.bib,pubblication_ef.bib]
+%\DeclareFieldFormat{labelnumberwidth}{2}
+\nocite{*}
+\printbibliography[title={Peer-Reviewed Journal Articles}, type=article]
+%\end{refsection}
+
+%\begin{refsection}[pubblication_ef.bib,strings.bib]
+%\DeclareFieldFormat{labelnumberwidth}{}
+%\nocite{*}%
+%\printbibliography[title={Peer-Reviewed Journal Articles}, type=article, resetnumbers=true]
+
+%\printbibliography[title={PhD Thesis}, type=misc, omitnumbers=true]%, resetnumbers=true] 
+%\end{refsection}
+
+%\bibliography{enrico_facca}
+\end{document}

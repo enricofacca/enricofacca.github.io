@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+
+%% Define some new colors
+\usepackage{xcolor}
+\definecolor{mBlue}{RGB}{51, 77, 167}
+\newcommand{\blue}[1]{{\color{mBlue}#1}}
+
+%% Page and text formatting
+\usepackage[left=1.0in, right=1.0in, top=1.0in, bottom=1.0in]{geometry} % margins
+\usepackage{setspace}
+\singlespacing % No more than 6 lines of text per inch
+\usepackage{amsmath, amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+%% Make the sections start with (a), (b), etc.
+\renewcommand\thesection{}
+\renewcommand\thesubsection{(\alph{subsection})}
+
+%% Set up footer
+\usepackage{fancyhdr}
+\fancypagestyle{CVfooter}
+{
+ \lhead{}
+ \chead{}
+ \rhead{}
+ \lfoot{\small{Enrico Facca}}
+ \cfoot{\small{\today}}
+ \rfoot{\small{\thepage/2}}
+ \renewcommand{\headrulewidth}{0.0pt}
+ \renewcommand{\footrulewidth}{0.5pt}
+}
+
+%% Set up hyperlinks
+\usepackage[linktoc=page]{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = mBlue,
+  citecolor = mBlue,
+  linkcolor = mBlue,
+}
+
+\usepackage[backend=biber,maxbibnames=10,defernumbers=true,
+  %sorting=ydnt
+  sorting=none
+]{biblatex}
+\addbibresource{strings.bib} 
+\addbibresource{pubblication_ef.bib}
+\AtEveryBibitem{%
+  \ifentrytype{article}{%
+    \clearfield{pages}%
+  }{%
+  }%
+}
+
+
+%% \makeatletter
+%% \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%% \makeatother
+%% \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%% %% Set up citations and bibliography
+%% \usepackage{bibunits}
+%% \usepackage[sort&compress,super]{natbib}
+%% \defaultbibliographystyle{apsrev4-2}
+%% \setcitestyle{comma}
+%% \setlength{\bibsep}{0pt}
+%% \renewcommand{\bibnumfmt}[1]{\ \ \ #1.}
+%% \renewcommand\refname{\vspace{-7mm}}
+
+%% %% This allows us to start a bibliography with arbitrary number
+%% \usepackage{etoolbox}
+%% \makeatletter
+%% \newcommand*{\newbibstartnumber}[1]{%
+%%   \apptocmd{\thebibliography}{%
+%%     \global\c@NAT@ctr #1\relax
+%%     \addtocounter{NAT@ctr}{-1}%Publications
+%%   }{}{}%
+%% }
+%% \makeatother
+
+%% Reduce whitespace around lists (globally)
+\usepackage{enumitem}
+\setlist[itemize]{nosep,left=0pt}
+\setlist[enumerate]{nosep}
+\setlist[description]{nosep}
+
+
+
+%% Formatting for sections
+\usepackage[compact]{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titlespacing*{\section}{0mm}{2mm}{1mm}[0mm] % left top bottom right
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titlespacing*{\subsection}{0mm}{2mm}{1mm}[0mm]
+\titleformat*{\subsubsection}{\normalsize\bfseries\itshape}
+\titlespacing*{\subsubsection}{0mm}{1mm}{0mm}[0mm]
+
+\begin{document}
+\pagestyle{CVfooter}
+
+\noindent \textbf{\uppercase{Biographical Sketch}}
+\vspace{2mm}
+
+\noindent \textbf{Enrico Facca}
+\vspace{1mm}
+
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+Computational Mathematics Researcher & Email: enrico.facca@sns.it\\
+Piazza dei Cavalieri, 3 Pisa, 56126 (Italy) & Phone: +39 333 40478760  \\
+Date of Birth: 30th October 1989  & \\
+\hline
+\end{tabular*}
+
+\section{\uppercase{Education}}
+
+\begin{tabular}{l l r}
+2014--2018 &PhD in Computational Mathematics (Advisor: Putti M.)  &Padova University (IT)  \\
+2011--2014 &Master in Mathematics  &Padova University (IT) \\
+2008--2011 &Bachelor in Mathematics &Padova University (IT)  \\
+\end{tabular}
+
+\section{\uppercase{Research Experience}}
+\begin{tabular}{l l r}
+2019--Now  & Postdoc (Advisor: Benzi M.), &Scuola Normale Superiore, Pisa (IT)\\
+2018--2019 & Postdoc  (18 months, Advisor: Putti M.), &Padova University (IT)\\
+2018 & Scholarship (4 months, Advisor: Putti M.), &Padova University (IT)\\
+\end{tabular}
+
+\section{\uppercase{Publications}}
+
+%% \vspace{2mm}
+%% \noindent \textbf{\textit{\ \ Most closely related}}
+%% \begin{bibunit}
+%% %\nocite{Facca-et-al:2018}
+%% \nocite{PirieNatPhys2020,MattPRB2020,WebbPRX2019,GozarNanoLett2017,HuangPRL2015}
+%% \putbib[pubtemp]
+%% \end{bibunit}
+
+%% \vspace{2mm}
+%% \noindent \textbf{\textit{\ \ Other significant publications}}
+%% \newbibstartnumber{6}
+%% \begin{bibunit}
+%% %\nocite{Facca-et-al:2018}
+%% \nocite{CominScience2014,ZeljkovicNanoLetters2014,SoumyanarayananPNAS2013,ZeljkovicScience2012,HoffmanScience2002qpi}
+%% \putbib[pubtemp]
+%% \end{bibunit}
+\begin{refsection}[strings.bib,pubblication_ef.bib]
+\DeclareFieldFormat{labelnumberwidth}{}
+\nocite{*}
+\printbibliography[heading=none, type=article, resetnumbers=true]
+\end{refsection}
+
+\section{\uppercase{Invited Talks}} 
+\emph{Biologically inspired deduction of Optimal} at: \emph{Optimal Transportation and Applications 2018, Pisa (IT)}
+
+\section{\uppercase{Research interests}}
+\begin{enumerate}
+\item Numerical solution of Optimal Transport Problems:
+  Monge-Kantorovich Problem, Congested and Branched Transport Problems
+\item Biological and complex networks
+\item Sparse Optimization, Basis Pursuit Problem
+\item Sparse Linear Algebra
+\end{enumerate}
+
+
+
+
+\end{document}
+

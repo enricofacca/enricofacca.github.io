@@ -1,0 +1,725 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,roman]{moderncv}
+\usepackage[utf8]{inputenc}    % utf8 support       %!!!!!!!!!!!!!!!!!!!!
+\usepackage[T1]{fontenc}       % code for pdf file  %!!!!!!!!!!!!!!!!!!!!
+
+% possible options include font size ('10pt', '11pt' and '12pt'), 
+% paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper',
+% 'executivepaper' and 'landscape') 
+% and font family ('sans' and 'roman')
+%\input{package.tex}
+%\input{commands_mp.tex}
+
+
+\usepackage[backend=biber,maxbibnames=10,defernumbers=true,sorting=ydnt]{biblatex}
+\addbibresource{strings.bib} 
+\addbibresource{pubblication_ef.bib} 
+
+%\addbibresource{enrico_facca.bib} 
+%\addbibresource{enrico_facca_sub.bib}
+
+\defbibenvironment{mypubs}
+ {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+% moderncv themes
+\moderncvstyle{classic}      
+% style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}
+% color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}
+% to set the default font; use '\sfdefault' for the default sans serif
+% font,
+% '\rmdefault' for the default roman one, or any tex font name
+% \nopagenumbers{}                 
+% uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}        
+% if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\usepackage[numbers]{natbib}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+%\usepackage{multibib}
+
+
+
+%\newcites{other}{Cited Papers}
+%\newcites{pub}{Published Journal Papers}
+%\newcites{sub}{Submitted Papers}   \item
+%\newcites{th}{Doctoral Dissertation}
+%\newcites{prep}{Drafts}
+%% \cventry{10-14-2020}{Presentation to the Vittorio Di Federico research group}   \item
+%%         {Invited Research Seminary}
+%%         {Emergence of branching structures via Optimal Transport and P-Laplacians}{Bologna (Italy)}{}
+%% \item\Pres[Bologna (Italy)]{October 14th, 2020}
+%%   {Presentation to the Vittorio Di Federico research group}
+%%   {Emergence of branching structures via Optimal Transport and P-Laplacians}
+%%   {Invited Research Seminary}
+\newcommand{\Pres}[5]{\cventry{#2}{#5}{#3}{\emph{``#4''}}{#1}{}{}}
+             
+%%   \ifthenelse{\equal{#5}{}}
+%%   {\emph{#3} ( #1 - #2 ) ``#4''Title:
+%%   }
+%%   {
+%%     #5. ``#4'' \emph{#3} ( #1 - #2 ) 
+%%   }
+%% }
+\newcommand{\Iedge}{e}
+%\parindent=0cm
+%\parskip=1em
+\usepackage{comment}
+\usepackage{booktabs}
+\setlength\tabcolsep{6pt}
+%\setlength{\hintscolumnwidth}{3cm} 
+% if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}  
+% for the 'classic' style, if you want to force the width
+% allocated to your name and avoid line breaks. 
+% be careful though, the length is normally calculated
+% to avoid any overlap with your personal info;
+%use this at your own typographical risks...
+
+
+
+
+% personal data
+\name{Enrico}{Facca}
+\title{Academic Curriculum \tiny{(Updated at \today)}}
+% optional, remove / comment the line if not wanted
+\address{Piazza dei Cavalieri, 3}{56126 Pisa, Italy}
+% optional, remove / comment the line if not wanted;
+%the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+39~3334078760}
+% optional, remove / comment the line if not wanted;
+%the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{enrico.facca@sns.it enrico.facca@gmail.com} % optional, remove / comment the line if not wanted
+%\homepage{http://www.math.unipd.it/\textasciitilde fpiazzon}
+% optional, remove / comment the line if not wanted
+%\social[linkedin]{john.doe}
+% optional, remove / comment the line if not wanted
+%\social[twitter]{jdoe}
+% optional, remove / comment the line if not wanted
+%\social[skype]{enrico.fh}
+% optional, remove / comment the line if not wanted
+\extrainfo{Date of birth: October 30th, 1989}
+% optional, remove / comment the line if not wanted
+\photo[64pt][0.4pt]{IMG_20191012}
+% optional, remove / comment the line if not wanted;
+%'64pt' is the height the picture must be resized to, 
+%0.4pt is the thickness of the frame around it 
+%(put it to 0pt for no frame) and 'picture' 
+%is the name of the picture file
+%\quote{Some quote} 
+% optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography
+%(default is to show no labels);
+% only useful if you make citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\nocite{*}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+%Dichiarazione resa ai sensi degli artt. 46 e 47 DPR N. 445/2000
+%\section{Personal info}
+%\textbf{Date of birth}: October 30th, 1989 \\
+%\textbf{Residence}: Via Citolo 10, Padova 35138, Italy.  
+
+
+\section{Current Position}
+\cventry{2019/Now}{Postdoc research fellowship}
+{Centro di Ricerca Matematica Ennio De Giorgi - Scuola Normale Superiore, Pisa (Italy)}{Advisor: Michele Benzi} 
+{}% (University of Padova)}
+{}
+
+\section{Positions Held}
+
+\cventry{2018/2019}{Postdoc research fellowship}
+{Padova University (Italy)}{} 
+{Advisor: Mario Putti}% (University of Padova)}
+{%Topic:
+  %\begin{itemize}
+  %\item 
+  %Numerical solution and application of Branched Transport Problem
+  %\item Sparse otpimization problems
+  %\end{itemize}
+}
+
+\cventry{2018}{Scholarship researcher}
+{Padova University (Italy)}{} 
+{Advisor: Mario Putti}
+{}
+
+\section{Education}
+\cventry{2018}{PhD in Mathematics}
+{Padova University (Italy)}{}
+{Supervisor: 
+  Mario Putti,
+  %(University of Padova),
+  Co-advisor
+  Franco Cardin 
+  %(University of Padova)
+  Thesis: \emph{Biologically inspired formulation of 
+    Optimal Transport Problems}}
+{}{}
+\cventry{2014}{Master in Mathematics}
+{Padova University (Italy)}{}
+{Supervisor: Mario Putti, Co-advisor
+  Franco Cardin.  Thesis: \emph{A biology-inspired model for the
+Optimal Transport Problem}}
+{}{}
+% arguments 3 to 6 can be left empty
+\cventry{2011}{Bachelor in Mathematics} {Padova University
+  (Italy)}{}{Supervisor: Francesco Fass\`o. Thesis: \emph{Reduction of
+    vector fields invariant under Lie group action}}{}
+
+
+\section{Teaching and Tutoring experiences}
+\cventry{2018/2019}{
+  Numerical calculus, Matlab laboratory assistant
+}{
+  Aerospace Engineering Bachelor, University of Padova, 24 hours lectures}{}{}{}
+\cventry{2016}{
+  Pre-course for Physical-Mathematics Models
+}{
+  Mathematical Engineering Master, University of Padova, six hours lectures}{}{}{}
+
+\cventry{2013/2014}{
+  Tutor for Calculus and Linear Algebra
+}{        
+  Engineering Bachelor, 
+  University of Padova, 24+24 exercise hours}{}{}{}
+
+\section{Research interests}
+\begin{itemize}
+\item Numerical solution of Optimal Transport Problems:
+  Monge-Kantorovich Problem, Congested and Branched Transport Problems
+\item Biological and complex networks
+\item Sparse Optimization, Basis Pursuit Problem
+\end{itemize}
+
+\section{Research activities summary}
+In my PhD thesis, I introduced a dynamical formulation, called
+Dynamical Monge-Kantorovich (DMK), of the Optimal Transport Problem
+(OTP). The OTP is a type of optimization problem where the goal is to
+determine the optimal reallocation of resources from one configuration
+to another.  The definition of the DMK model equations and the develop
+of methods for the numerical solution of the OTP have been summarized
+in~\cite{Facca-et-al:2018,Facca-et-al-numeric:2020,Bergamaschi-et-al:2018}.
+Recent advances in the theoretical consolidation of the DMK model are
+described in~\cite{FaccaPiazzon:2019}, where we introduced a Gradient
+Flow reinterpretation of the model. In~\cite{Facca-et-al-branch:2018}
+we introduced an extension of DMK model addressing those problems
+where concentration along the transport is either penalized or favored
+is described.  More recently, I started exploring some adaptation of
+the DMK model in finite dimensional frameworks, starting from the
+ideas presented in~\cite{Facca-et-al-discrete:2018}.  Together with
+Caterina De Bacco and her PhD students at Max Plank Institute in
+T\"ubinghen, in~\cite{BaLe2020,lonardi2020optimal} we worked on the
+application of a discrete version of the DMK model on graphs.  In
+collaboration with the research group of Prof. Kurt Mehlhorn from Max
+Plank Institute in Saarbr\"uchen,
+in~\cite{Facca-et-al-nonuniform:2020} we studied a reformulation of
+the discrete DMK model addressing the solution of Linear Programming
+problem.  In~\cite{BoFa2020} we addressed the solution of the
+multi-commodity Optimal Transport Problem i.e., the extension of the
+OTP where different resources needs to be
+reallocated. In~\cite{FaBe2020}, together with Prof. Michele Benzi
+from Scuola Normale Superiore Pisa, we worked on the efficient
+numerical solution of the OTP on graphs, combining backward Euler
+time-stepping of the dynamical equations of the DMK model with inexact
+Newton Method.
+
+\section{List of Publications}
+\begin{refsection}[pubblication_ef.bib,strings.bib]
+\DeclareFieldFormat{labelnumberwidth}{}
+\nocite{*}
+\printbibliography[title={PhD Thesis}, type=misc, omitnumbers=true]%, resetnumbers=true] 
+\end{refsection}
+
+\newrefcontext[labelprefix=A]
+\printbibliography[title={Peer-Reviewed Journal Articles}, type=article, resetnumbers=true]
+
+%\newrefcontext[labelprefix=P]
+%\makeatletter
+%\begingroup
+%\def\blx@prefixnumbers{P}
+\newrefcontext[labelprefix=P]
+\printbibliography[title={Preprints}, type=unpublished,resetnumbers=true]
+%\endgroup
+
+
+
+\section{List of Scientific Presentations}
+\Pres{Bologna (Italy)}{10-14-2020}
+  {Presentation to the Vittorio Di Federico research group}
+  {Emergence of branching structures via Optimal Transport and P-Laplacians}
+  {Invited Research Seminary}
+
+\Pres{Egmood aan Zee (Netherland)}
+  {10-02-2019} {European Numerical
+    Mathematics and Advanced Applications Conference 2019}
+  {Optimal Transport Tools on Surface}
+  {Contributed Talk}
+
+\Pres{Cortona (Italy)} 
+  {06-26-2019} 
+  {People in
+    Optimal Transportation and Applications - Incontri Indam
+    2019
+  } 
+  {A nature inspired optimization tool}
+  {Contributed Talk}
+
+\Pres{Houston - Texas, USA }
+  {04-14-2019}
+  {SIAM Conference on Mathematical Computational Issues in the Geosciences}
+  {Plant Root Modeling via Optimal Transport}
+  {Contributed Talk}
+
+\Pres{Houston - Texas, USA }
+  {04-12-2019}
+  {SIAM Conference on Mathematical Computational Issues in the Geosciences}
+  {Numerical Solution of $L^1$-Optimal Transport Problem}
+  {Contributed Talk}
+
+\Pres{Pisa, Italy}
+  {11-15-2018}
+  {Optimal Transportation and Applications }
+  {Biologically inspired deduction of Optimal
+    Transport Problems}
+  {Invited Presentation}
+  
+\Pres{Bergen, Norway}
+  {09-06-2018}
+  {Presentation to porous media research group} 
+  {Biologically inspired formulation of Optimal
+    Transportation Problems}
+  {Research Seminar}
+
+
+\Pres{Roma, Italy}
+  {07-06-2018}
+  {SIMAI 2018}
+  {Biologically inspired formulation of Optimal
+      Transportation Problems}
+  {Contributed Talk}
+
+\Pres{Saint Malom, France}
+  {06-04-2018}
+  {Computational Methods in Water Resources XXIII}
+  {Plant root dynamics via Optimal Transport}
+  {Contributed Talk}
+
+
+\Pres{Bonn, Germany } 
+  {04-05-2018}
+  {Terrestrial Systems Research: Monitoring, Prediction and
+    High Performance Computing} 
+  {Hydrological networks as
+    optimal transport structures} 
+  {Contributed Talk}
+
+
+\Pres{Erlangen, Germany}
+  {09-11-2017}
+  {SIAM Conference on Mathematical 
+    and Computational Issues in the Geo-sciences}
+  {Biologically inspired formulation of Optimal
+    Transportation Problems}
+  {Contributed Talk}
+
+  
+ \Pres{Lausanne, Swizerland}
+   {04-27-2017}
+   {Presentation to the Fabio Nobile research group}
+   {Biologically inspired formulation of Optimal
+     Transportation Problems}
+   {Research Seminar}
+      
+
+\Pres{Bressanone, Italy} 
+  {12-18-2014}
+  {Current Problems in fluid-dynamics 
+    and non equilibrium thermodynamics}
+  {Biologically inspired formulation of Optimal Transportation
+    Problem}
+  {Contributed Talk}%% 
+%% \end{enumerate}
+
+% \section{Research achievements}
+% I am author and co-author of two accepted journal paper
+% and one submitted paper (see \emph{List of Publications} below).
+% I attended to several international conferences
+% where I presented my results
+% (see \emph{List of Scientific Presentations} below).
+
+% My research interests range from the numerical analysis to
+% the solution of optimization problems, mainly focused on
+% the \emph{Optimal Transport Problem} (OTP), 
+% an area of mathematics studies 
+% the least-cost strategies to reallocate 
+% ``resources''. In particular, my research interests 
+% are focused in the study of following formulation of the \OTP.
+% Given two balanced densities $\Source$ and $\Sink$ defined in 
+% $\Domain \subset \REAL^{\Dim}$ find the vector field
+% $\Vel \Domain \mapsto \REAL^{\Dim}$ solving
+% \begin{equation}
+%   \min_{\Vel}
+%   \left\{
+%     \int_{\Domain} |\Vel|^{\PPP} \ : \ \Div(\Vel(x))=\Source(x)-\Sink(x)  
+%   \right\}
+% \end{equation}
+% with $\PPP \in ]0,2[$, 
+% (the case $\PPP <1$ requires a proper chracterization of the 
+% above integral).
+
+% The approach I proposed (firstly in my master degree thesis
+% and then in my PhD studies) is based on the approximation of
+% the  optimal vector field as the long-time limit 
+% of $\Vel(t,x) = -\TDens(t,x) \Grad \Pot(t,x)$
+% where the pair
+% $(\Tdens,\Pot):([0,+\infty[,\Domain)\mapsto (\REAL^+,\REAL)$
+% solves the following equations 
+% \begin{equation}
+%   \label{eq-sys}
+%   \begin{aligned}
+%     %\label{eq-sys-div}
+%     &-\Div\left(\Tdens(t,x)\Grad\Pot(t,x)\right) 
+%     =
+%     \Forcing(x)=\Source(x)-\Sink(x) 
+%     \\ 
+%     %\label{eq-sys-1-dyn}
+%     & \Dt{\Tdens}(t) =
+%     \left[\Tdens(t,x)|\Grad\Pot(t,x)|\right]^{\Pflux}
+%     -
+%     \Tdens(t)
+%     \\
+%     %\label{eq-sys-1-bc} 	
+%     &\Tdens(0) =\Tdens_0(x)> 0 
+%   \end{aligned}
+% \end{equation}
+% completed with zero Neumann-Boundary conditions.
+% % For the $\Pflux=1$, I conjectured
+% % the equivalence between long time-limit of the above
+% % system of equations and the solution of  the
+% % Monge Kantorovich Equations (\MKEQS), a PDE formulation
+% % of the \OTP\ introduced in~\citeother{Evans-Gangbo:1999}.
+% % During my PhD studies, I carried out a deeper
+% % investigation of the conjecture.
+% Although a complete proof is still missing,
+% somseveralthe numerical evidence shows that the numerical solution 
+% of the \MKEQS\ via the proposed model 
+% is very efficient, well-defined and robust,
+% using simple discretization schemes. 
+% The results obtained are summarized in~\citepub{Facca-et-al:2018} 
+% and in~\citesub{Facca-et-al-numeric:2017}.
+
+
+% The simple modifications of the proposed model, with 
+% general exponent $\Pflux>0$, has been introduced during
+% my PhD studies. For $0<\Pflux<1$ the above system of equations
+% leads to the solution of the \CTP, with
+% $\OptPot=\lim_{t\Tendsto +\infty} \Pot(t,\cdot)$ solving
+% the $\Plapl$-Laplancian equations 
+% with $\Plapl=(2-\Pflux)/(1-\Pflux)$.
+% For $\Pflux>1$, numerical simulations shows that the long
+% time limit of equation~\eqref{eq-sys} 
+% leads to the formation of singular and
+% fractal-like structures typically emerging from BT problems.
+% Despite the exact relationship between the steady state
+% of equation~\eqref{eq-sys} and the \BTP\ 
+% is still missing, again partial 
+% mathematical results and strong numerical evidence support
+% our claim that these structures are solutions of a \BTP,
+% possibly non-standard.
+ 
+% I plan to submit a paper
+% summarizing all these results in few months.
+
+% For example, the problems where we want to 
+% penalize aggregation along transport is called 
+% \emph{Congested Transport Problem}(\CTP), and it finds
+% application in study of the crown motion or urban traffic
+% planning. On the contrary, \emph{Branched Transport
+%   Problem}(\BTP) studies those problems were mass
+% concentration is favored, creating fractal-like and ramified
+% transport structures that are ubiquitous in nature, like the
+% plant roots, blood vessels, and river networks.
+
+% The model for $\Pflux>1$ finds different application
+% in the study of natural transport network like
+% plant roots, blood vessels, and river networks, 
+% both in the description of the formation of such structure
+% and in the understanding of the leading principle shaping them.
+
+% The numerical solution via the proposed model has many
+% strength point, in particular its
+% simplicity.
+% In fact, the heaviest computational cost is payed solving 
+% sequence of sparse semi-positive definite linear system
+% were there is still huge space of improvement, 
+% in particular in the identification of 
+% ad-hoc preconditioning stratergies.
+% In~\citepub{Bergamaschi-et-al:2018} we investigate
+% how to incorporate partial approximated spectral information
+% into several preconditioning strategies.
+
+  
+% My research interests range from the 
+% theoretical to the numerical analysis of the 
+% \emph{Optimal Transport Problem} (OTP),
+% in particular of the Monge-Kantorovich (MK) equations,
+% Congested and Branched Transport Problem 
+% (\CTP,\BTP), all studying 
+% least-cost strategies to reallocate ``resources''.
+% The MK equations is a PDE based formulation
+% of the \OTP, while the \CTP\ and the \BTP\
+% study those phenomena where  mass
+% aggregation is either penalized or favored.
+% In particular, the \BTP\ finds many applications
+% in the study of natural network since
+% like the plant roots, blood
+% vessels, and river basins.
+
+
+% % contribuition
+% My contributions in these topics are connected to
+% a model ( introduced in my master degree and main topic of
+% my PhD studies~\citeth{Facca:2018})
+% that couples a diffusion equation 
+% with an ODE imposing a transient
+% dynamics to the diffusion coefficient.
+% I conjectured this system to convergence 
+% toward a steady state configuration 
+% and to solve OT problems.
+% Although a complete proof is still missing,
+% several the numerical evidence shows 
+% that the numerical solution 
+% of the OT problems via the proposed model 
+% is very efficient, well-defined and robust,
+% using simple discretization schemes
+% (all these results are collected 
+% in~\citepub{
+%   Facca-et-al:2018}~\citesub{
+%   Facca-et-al-numeric:2018,
+%   Facca-et-al-branch:2018}).
+% Simplicity is one of the many strength point of the model.
+% In fact, the heaviest computational cost is payed solving 
+% sequence of sparse semi-positive definite linear system
+% where there is still huge space of improvement, 
+% in particular in the identification of 
+% ad-hoc preconditioning strategies.
+% In~\citepub{Bergamaschi-et-al:2018} I worked investigating
+% how to incorporate partial approximated spectral information
+% into several preconditioning strategies.
+
+% % current and future works
+% A similar linear algebra problem, now
+% part of my post-Doc research,  
+% arises from the backward Euler time-stepping
+% of the model equations, 
+% where non-linearity is solved via Newton method.
+% The problem requires the solution of 
+% a sequence of linear systems 
+% in the form
+% \begin{equation*}
+% \begin{pmatrix}
+%     \Matr{A}
+%     &
+%     \Matr{B}^T
+%     \\
+%     -\Deltat 
+%     \Matr{D_1}
+%     \Matr{B}
+%     &
+%     \quad \Matr{I}-\Deltat\Matr{D_2}
+%   \end{pmatrix}
+%   \begin{pmatrix}
+%     \Vect{x}_1
+%     \\
+%     \Vect{x}_2
+%   \end{pmatrix}
+%   =
+%   \begin{pmatrix}
+%     \Vect{b}_1
+%     \\
+%     \Vect{b}_2
+%   \end{pmatrix}
+% \end{equation*}
+% where $\Deltat$ is the time-step,
+% $\Matr{A}$ and $\Matr{B}$ are sparse matrices,
+% the first semi-positive definitive, the second rectangular,
+% while $\Matr{D_1}$ and $\Matr{D_2}$ are diagonal matrices.
+% An efficient preconditioning strategies will
+% give enormous speed-up in the solution of OT problems 
+% since preliminary results 
+% already shows that convergence to steady state 
+% is achieved after 30 time-iterations, requiring 
+% between 4 and 6 Newton iterations each.
+ 
+
+% The same linear algebra problem arises from 
+% a discrete version of the model 
+% that can be applied in the finding sparse
+% solution of undetermined linear system,
+% minimizing the $l_1$-norm of the solution
+% (problem know also as Basis Pursuit). 
+
+
+\section{Master Thesis Co-supervision}
+ Co-advisor with Mario Putti of the master degree thesis in
+ Mathematics and Mathematical Engineering of Andrea Pinto
+ (2015), Enrico Cortese (2017), Claudia Dario (2017),
+ Riccardo Tosi (2018), Luca Berti (2018), Nicola Segala (2019).
+
+\section{Visiting periods}
+\cventry{2019}{Max Planck Institute Saarbr\"ucken, Germany}{ One week
+  working on Polycephalum model for Basis Pursuit Problem with the
+  research group of Kurt Mehlhorn}{}{}{}
+
+\cventry{2018}{Bergen University, Norway}{One week working on the
+  application of the Branched Transport Problem to the study of blood
+  vessel in the brain with the research group of Jan Martin
+  Nordbotten}{}{}{}
+
+\cventry{2016}{Orsay - Paris Sur University,
+  France}{Two weeks working on my doctoral dissertation with with
+  Filippo Santambrogio}{}{}{}
+
+\cventry{2015-2016}{Friedrich-Alexander-Universit\"at
+  Erlangen-N\"urnberg Germany}{Seven months working on my doctoral
+  dissertation with Peter Knabner, Aldo Pratelli, and Sara
+  Daneri}{}{}{}
+
+  
+
+\section{Organizing activities}
+ \begin{itemize}
+ \item Organizer of a two-days workshop
+   \emph{``Seminari Padovani di Analisi Numerica 2018''} 
+   May 2018, Padova.
+ \end{itemize}
+
+
+\section{Computer skills}
+  \begin{itemize}
+    \item Advanced knowledge with Unix system
+    \item Expert with Fortran, including Object-Oriented Fortran 2003-2008
+    \item Advanced knowledge with Python, Matlab
+  \end{itemize}
+
+\section{Languages}
+\cvitemwithcomment{Italian}{Mother tongue}{}
+
+\cvitemwithcomment{}{%
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{2}{c}{Understanding} 
+    & \multicolumn{1}{c}{Speaking}
+    & Writing \\ \midrule
+    Listening         & Reading        &  -  & -       
+    %\\ B2 & B2  & B2  & B2  & B2      \\ \bottomrule
+  \end{tabular}%
+}{}
+\cvitemwithcomment{English}{%
+  \centering
+  \begin{tabular}{*{4}{c}}
+    \toprule
+    % \multicolumn{2}{c}{Understanding} 
+    % & \multicolumn{2}{c}{Speaking}
+    % & Writing \\ \midrule
+    % & & Spoken & Spoken & \\
+    % Listening         & Reading        &  interaction &  production &
+    % -       
+    % \\ 
+    \hspace{0.43cm}  B2 & 
+    \hspace{0.88cm}  C1 \   & 
+    \hspace{0.8cm}  B2  & 
+    \hspace{0.8cm}   B2 \hspace{0.32cm}  
+    \\ 
+    \bottomrule
+  \end{tabular}
+}{}
+\cvitemwithcomment{Spanish}{%
+  \centering
+  \begin{tabular}{*{4}{c}}
+    %\toprule
+    % \multicolumn{2}{c}{Understanding} 
+    % & \multicolumn{2}{c}{Speaking}
+    % & Writing \\ \midrule
+    % & & Spoken & Spoken & \\
+    % Listening         & Reading        &  interaction &  production &
+    % -       
+    % \\ 
+    \hspace{0.43cm}  B2 & 
+    \hspace{0.88cm}  C1 \   & 
+    \hspace{0.8cm}  B2  & 
+    \hspace{0.8cm}   B2 \hspace{0.32cm}  
+    \\ 
+    \bottomrule
+  \end{tabular}
+}{}
+
+\section{References}
+\emph{For a reference letter please contact the following persons.}
+
+\begin{cvcolumns}
+  \cvcolumn{}{
+    \begin{itemize}
+    \item Michele Benzi (Scuola Normale Superiore, Italy) 
+    \item Giuseppe Buttazzo (University of Pisa, Italy)
+    \item Franco Cardin (University of Padova, Italy) 
+    \item Malgorzata Peszynska (Oregon State University, USA) 
+    \item Mario Putti (University of Padova, Italy) 
+    \end{itemize}
+  }
+\end{cvcolumns}
+
+
+\newpage
+
+
+
+
+   %\bibliographystyleother{plainyr-rev}
+   %\bibliographyother{biblio}
+
+
+\end{document}
+
+
+% end of file `template.tex'.
