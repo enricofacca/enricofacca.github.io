@@ -7,7 +7,6 @@
 *.bbl
 *.blg
 *.bbl
-**pdf
 *soc
 *.xml
 *.bcf
