@@ -1,0 +1,450 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,roman]{moderncv}
+\usepackage[utf8]{inputenc}    % utf8 support       %!!!!!!!!!!!!!!!!!!!!
+\usepackage[T1]{fontenc}       % code for pdf file  %!!!!!!!!!!!!!!!!!!!!
+
+% possible options include font size ('10pt', '11pt' and '12pt'),
+% paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper',
+% 'executivepaper' and 'landscape')
+% and font family ('sans' and 'roman')
+%\input{package.tex}
+%\input{commands_mp.tex}
+%\renewcommand{\homepage}[1]{#1}
+
+\usepackage[backend=biber,maxbibnames=10,defernumbers=true,sorting=ydnt]{biblatex}
+\addbibresource{strings.bib}
+\addbibresource{pubblication_ef.bib}
+
+%\addbibresource{enrico_facca.bib}
+%\addbibresource{enrico_facca_sub.bib}
+
+\defbibenvironment{mypubs}
+ {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+% moderncv themes
+\moderncvstyle{classic}
+% style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}
+% color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}
+% to set the default font; use '\sfdefault' for the default sans serif
+% font,
+% '\rmdefault' for the default roman one, or any tex font name
+% \nopagenumbers{}
+% uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}
+% if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\usepackage[numbers]{natbib}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+%\usepackage{multibib}
+
+
+
+%\newcites{other}{Cited Papers}
+%\newcites{pub}{Published Journal Papers}
+%\newcites{sub}{Submitted Papers}   \item
+%\newcites{th}{Doctoral Dissertation}
+%\newcites{prep}{Drafts}
+%% \cventry{10-14-2020}{Presentation to the Vittorio Di Federico research group}   \item
+%%         {Invited Research Seminary}
+%%         {Emergence of branching structures via Optimal Transport and P-Laplacians}{Bologna (Italy)}{}
+%% \item\Pres[Bologna (Italy)]{October 14th, 2020}
+%%   {Presentation to the Vittorio Di Federico research group}
+%%   {Emergence of branching structures via Optimal Transport and P-Laplacians}
+%%   {Invited Research Seminary}
+\newcommand{\Pres}[5]{\cventry{#2}{#5}{#3}{\emph{``#4''}}{#1}{}{}}
+
+%%   \ifthenelse{\equal{#5}{}}
+%%   {\emph{#3} ( #1 - #2 ) ``#4''Title:
+%%   }
+%%   {
+%%     #5. ``#4'' \emph{#3} ( #1 - #2 )
+%%   }
+%% }
+\newcommand{\Iedge}{e}
+%\parindent=0cm
+%\parskip=1em
+\usepackage{comment}
+\usepackage{booktabs}
+\setlength\tabcolsep{6pt}
+%\setlength{\hintscolumnwidth}{3cm}
+% if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}
+% for the 'classic' style, if you want to force the width
+% allocated to your name and avoid line breaks.
+% be careful though, the length is normally calculated
+% to avoid any overlap with your personal info;
+%use this at your own typographical risks...
+
+
+
+
+% personal data
+\name{Enrico}{Facca}
+\title{Academic Curriculum \tiny{(Updated at \today)}}
+% optional, remove / comment the line if not wanted
+\address{Piazza dei Cavalieri, 3}{56126 Pisa, Italy}
+% optional, remove / comment the line if not wanted;
+%the "postcode city" and "country" arguments can be omitted or provided empty
+%\phone[mobile]{+39~3334078760}
+% optional, remove / comment the line if not wanted;
+%the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{enrico.facca@inria.fr, enrico.facca@gmail.com} % optional, remove / comment the line if not wanted
+\homepage{enricofacca.github.io}
+% optional, remove / comment the line if not wanted
+%\social[linkedin]{john.doe}
+% optional, remove / comment the line if not wanted
+%\social[twitter]{jdoe}
+% optional, remove / comment the line if not wanted
+%\social[skype]{enrico.fh}
+% optional, remove / comment the line if not wanted
+\extrainfo{Date of birth: October 30th, 1989}
+% optional, remove / comment the line if not wanted
+\photo[64pt][0.4pt]{IMG_20191012}
+% optional, remove / comment the line if not wanted;
+%'64pt' is the height the picture must be resized to,
+%0.4pt is the thickness of the frame around it
+%(put it to 0pt for no frame) and 'picture'
+%is the name of the picture file
+%\quote{Some quote}
+% optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography
+%(default is to show no labels);
+% only useful if you make citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\nocite{*}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+%Dichiarazione resa ai sensi degli artt. 46 e 47 DPR N. 445/2000
+%\section{Personal info}
+%\textbf{Date of birth}: October 30th, 1989 \\
+%\textbf{Residence}: Via Citolo 10, Padova 35138, Italy.
+
+
+\section{Current Position}
+\cventry{2019/Now}{Postdoc research fellowship}
+{Centro di Ricerca Matematica Ennio De Giorgi - Scuola Normale Superiore, Pisa (Italy)}{Advisor: Michele Benzi}
+{}% (University of Padova)}
+{}
+
+\section{Positions Held}
+
+\cventry{2018/2019}{Postdoc research fellowship}
+{Padova University (Italy)}{}
+{Advisor: Mario Putti}% (University of Padova)}
+{%Topic:
+  %\begin{itemize}
+  %\item
+  %Numerical solution and application of Branched Transport Problem
+  %\item Sparse otpimization problems
+  %\end{itemize}
+}
+
+\cventry{2018}{Scholarship researcher}
+{Padova University (Italy)}{}
+{Advisor: Mario Putti}
+{}
+
+\section{Education}
+\cventry{2018}{PhD in Mathematics}
+{Padova University (Italy)}{}
+{Supervisor:
+  Mario Putti,
+  %(University of Padova),
+  Co-advisor
+  Franco Cardin
+  %(University of Padova)
+  Thesis: \emph{Biologically inspired formulation of
+    Optimal Transport Problems}}
+{}{}
+\cventry{2014}{Master in Mathematics}
+{Padova University (Italy)}{}
+{Supervisor: Mario Putti, Co-advisor
+  Franco Cardin.  Thesis: \emph{A biology-inspired model for the
+Optimal Transport Problem}}
+{}{}
+% arguments 3 to 6 can be left empty
+\cventry{2011}{Bachelor in Mathematics} {Padova University
+  (Italy)}{}{Supervisor: Francesco Fass\`o. Thesis: \emph{Reduction of
+    vector fields invariant under Lie group action}}{}
+
+
+\section{Teaching}
+\cventry{2018/2019}{
+  Numerical calculus, Matlab laboratory assistant
+}{
+  Aerospace Engineering Bachelor, University of Padova, 24 hours lectures}{}{}{}
+
+
+\cventry{2016}{
+  Pre-course for Physical-Mathematics Models
+}{
+  Mathematical Engineering Master, University of Padova, six hours lectures}{}{}{}
+
+\section{Tutoring experiences}
+\cventry{2013/2014}{
+  Tutor for Calculus and Linear Algebra
+}{
+  Engineering Bachelor,
+  University of Padova, 24+24 exercise hours}{}{}{}
+
+\newpage{}
+
+\section{List of Publications}
+\subsection{PhD Thesis}
+\cvitem{ 2018 }{Enrico, Facca, \href{http://paduaresearch.cab.unipd.it/11136/2/enrico_facca_thesis.pdf }{Biologically inspired formulation of Optimal Transport Problems }.}
+\subsection{Peer-Reviewed Journal Articles}
+\cvitem{2018}{Enrico Facca, Franco Cardin, Mario Putti, \href{https://doi.org/10.1137/16M1098383}{Towards a Stationary Monge--Kantorovich Dynamics: The Physarum Polycephalum Experience}, \emph{SIAM J. Appl. Math.}.}
+\cvitem{2020}{Facca, Enrico, Daneri, Sara, Cardin, Franco, Putti, Mario, \href{https://doi.org/10.1007/s10915-020-01170-8}{Numerical solution of Monge--Kantorovich Equations via a Dynamic Formulation}, \emph{J. Scient. Comput.}.}
+\cvitem{2018}{Bergamaschi,Luca, Facca, Enrico, Mart\'inez Calomardo, \'Angeles, Putti, Mario, \href{https://doi.org/10.1016/j.cam.2018.01.022}{Spectral preconditioners for the efficient numerical solution of a continuous branched transport model}, \emph{J. Comput. Appl. Math.}.}
+\cvitem{2020}{Facca,Enrico, Karrenbauer, Andreas, Kolev, Pavel, Mehlhorn, Kurt, \href{https://doi.org/10.1016/j.tcs.2020.01.034}{Convergence of the non-uniform directed Physarum model}, \emph{Theor. Comput. Sci.}.}
+\cvitem{2020}{Diego Baptista, Daniela Leite, Enrico Facca, Mario Putti, Caterina De Bacco, \href{https://doi.org/10.1038/s41598-020-77064-4 }{Network extraction by routing optimization}, \emph{Sci. Rep.}.}
+\cvitem{2021}{Facca, Enrico, Benzi, Michele, \href{https://doi.org/10.1137/20M137015X}{Fast Iterative Solution of the Optimal Transport Problem on Graphs}, \emph{SIAM J. Sci. Comput.}.}
+\subsection{Preprints}
+\cvitem{2018}{Enrico Facca, Franco Cardin, Mario Putti, \textbf{Branching structures emerging from a continuous optimal transport model}, Under review at \ .}
+\cvitem{2018}{Facca, Enrico, Cardin, Franco, {Putti}, Mario, \textbf{Physarum Dynamics and Optimal Transport for Basis Pursuit}, \href{https://arxiv.org/abs/1812.11782}{(ArXiv preprint available)}.}
+\cvitem{2019}{Facca, Enrico, Piazzon, Federico, \textbf{Transport Energy}, \href{https://arxiv.org/abs/1909.04417}{(ArXiv preprint available)}.}
+\cvitem{2020}{Bonifaci, Vincenzo, Facca, Enrico, Folz, Frederic, Karrenbauer, Andreas, Kolev, Pavel, Mehlhorn, Kurt, Morigi, Giovanna, Shahkarami, Golnoosh, Vermande, Quentin, \textbf{Physarum Multi-Commodity Flow Dynamics}, Under review at \ .}
+\cvitem{2020}{Alessandro Lonardi, Enrico Facca, Mario Putti, Caterina De Bacco, \textbf{Optimal transport for multi-commodity routing on networks}, Under review at \ .}
+\cvitem{2021}{Luca Berti, Enrico Facca, Mario Putti, \textbf{Numerical Solution of the $L^1$-Optimal Transport Problem on Surfaces}, \href{https://arxiv.org/abs/2106.06479}{(ArXiv preprint available)}.}
+\cvitem{2021}{Enrico Facca, Luca Berti, Francesco Fassó, Mario Putti, \textbf{Computing the Cut Locus of a Riemannian Manifold via Optimal Transport}, \href{https://arxiv.org/abs/2106.07510}{(ArXiv preprint available)}.}
+
+\section{List of Scientific Presentations}
+\Pres{Bologna (Italy)}{10-14-2020}
+  {Presentation to the Vittorio Di Federico research group}
+  {\textbf{Emergence of branching structures via Optimal Transport and P-Laplacians}}
+  {Invited Research Seminary}
+
+\Pres{Egmood aan Zee (Netherland)}{10-02-2019}
+  {European Numerical Mathematics and Advanced Applications Conference 2019}
+  {Optimal Transport Tools on Surface}
+  {Contributed Talk}
+
+\Pres{Cortona (Italy)}{06-26-2019}
+  {People in Optimal Transportation and Applications - Incontri Indam 2019}
+  {A nature inspired optimization tool}
+  {Contributed Talk}
+
+\Pres{Houston - Texas, USA}{04-14-2019}
+  {SIAM Conference on Mathematical Computational Issues in the Geosciences}
+  {Plant Root Modeling via Optimal Transport}
+  {Contributed Talk}
+
+\Pres{Houston - Texas, USA}{04-12-2019}
+  {SIAM Conference on Mathematical Computational Issues in the Geosciences}
+  {Numerical Solution of $L^1$-Optimal Transport Problem}
+  {Contributed Talk}
+
+\Pres{Pisa, Italy}{11-15-2018}
+  {Optimal Transportation and Applications}
+  {\textbf{Biologically inspired deduction of Optimal Transport Problems}}
+  {Invited Presentation}
+
+\Pres{Bergen, Norway}{09-06-2018}
+  {Presentation to porous media research group}
+  {Biologically inspired formulation of Optimal Transportation Problems}
+  {Research Seminar}
+
+\Pres{Roma, Italy}{07-06-2018}
+  {SIMAI 2018}
+  {Biologically inspired formulation of Optimal Transportation Problems}
+  {Contributed Talk}
+
+\Pres{Saint Malom, France}{06-04-2018}
+  {Computational Methods in Water Resources XXIII}
+  {Plant root dynamics via Optimal Transport}
+  {Contributed Talk}
+
+\Pres{Bonn, Germany}{04-05-2018}
+  {Terrestrial Systems Research: Monitoring, Prediction and High Performance Computing}
+  {Hydrological networks as optimal transport structures}
+  {Contributed Talk}
+
+\Pres{Erlangen, Germany}{09-11-2017}
+  {SIAM Conference on Mathematical and Computational Issues in the Geo-sciences}
+  {Biologically inspired formulation of Optimal Transportation Problems}
+  {Contributed Talk}
+
+\Pres{Lausanne, Swizerland}{04-27-2017}
+  {Presentation to the Fabio Nobile research group}
+  {Biologically inspired formulation of Optimal Transportation Problems}
+  {Research Seminar}
+
+\Pres{Bressanone, Italy}{12-18-2014}
+  {Current Problems in fluid-dynamics and non equilibrium thermodynamics}
+  {Biologically inspired formulation of Optimal Transportation Problem}
+  {Contributed Talk}
+
+
+\section{Master Thesis Co-supervision}
+ Co-advisor with Mario Putti of the master degree thesis in
+ Mathematics and Mathematical Engineering of Andrea Pinto
+ (2015), Enrico Cortese (2017), Claudia Dario (2017),
+ Riccardo Tosi (2018), Luca Berti (2018), Nicola Segala (2019), Nicol\`o Crescenzio (2021).
+
+\section{Visiting periods}
+\cventry{2019}{Max Planck Institute Saarbr\"ucken, Germany}{ One week
+  working on Polycephalum model for Basis Pursuit Problem with the
+  research group of Kurt Mehlhorn}{}{}{}
+
+\cventry{2018}{Bergen University, Norway}{One week working on the
+  application of the Branched Transport Problem to the study of blood
+  vessel in the brain with the research group of Jan Martin
+  Nordbotten}{}{}{}
+
+\cventry{2016}{Orsay - Paris Sur University,
+  France}{Two weeks working on my doctoral dissertation with with
+  Filippo Santambrogio}{}{}{}
+
+\cventry{2015-2016}{Friedrich-Alexander-Universit\"at
+  Erlangen-N\"urnberg Germany}{Seven months working on my doctoral
+  dissertation with Peter Knabner, Aldo Pratelli, and Sara
+  Daneri}{}{}{}
+
+
+
+\section{Organizing activities}
+ \begin{itemize}
+ \item Organizer of a two-days workshop
+   \emph{``Seminari Padovani di Analisi Numerica 2018''}
+   May 2018, Padova.
+ \end{itemize}
+
+
+ \section{Programming/computer skills}
+ \begin{itemize}
+ \item Advanced knowledge with Unix-based system
+ \item Expert with Fortran, including Object-Oriented Fortran 2003-2008
+ \item Advanced knowledge with Python and Matlab
+ \end{itemize}
+
+ \section{Softwares}
+ \begin{itemize}
+ \item \href{https://gitlab.com/enrico\_facca/dmk\_solver}{\textbf{Dynamic Monge-Kantorovich Solver}: Numerical solver for the Optimal Transport Problem with transport cost equal to Euclidean Distance on 2d,3d and surface domain}
+   \item
+     \href{https://gitlab.com/enrico_facca/dmk_solver/-/tree/develop/graph\_otp\_solver}{\textbf{Graph
+         Dynamic Monge-Kantorovich Solver}: Numerical solver for the
+       Optimal Transport Problem on graphs with transport cost equal
+       to shortest path distance}
+ \end{itemize}
+
+
+\section{Languages}
+\cvitemwithcomment{Italian}{Mother tongue}{}
+
+\cvitemwithcomment{}{%
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{2}{c}{Understanding}
+    & \multicolumn{1}{c}{Speaking}
+    & Writing \\ \midrule
+    Listening         & Reading        &  -  & -
+    %\\ B2 & B2  & B2  & B2  & B2      \\ \bottomrule
+  \end{tabular}%
+}{}
+\cvitemwithcomment{English}{%
+  \centering
+  \begin{tabular}{*{4}{c}}
+    \toprule
+    % \multicolumn{2}{c}{Understanding}
+    % & \multicolumn{2}{c}{Speaking}
+    % & Writing \\ \midrule
+    % & & Spoken & Spoken & \\
+    % Listening         & Reading        &  interaction &  production &
+    % -
+    % \\
+    \hspace{0.43cm}  B2 &
+    \hspace{0.88cm}  C1 \   &
+    \hspace{0.8cm}  B2  &
+    \hspace{0.8cm}   B2 \hspace{0.32cm}
+    \\
+    \bottomrule
+  \end{tabular}
+}{}
+\cvitemwithcomment{Spanish}{%
+  \centering
+  \begin{tabular}{*{4}{c}}
+    %\toprule
+    % \multicolumn{2}{c}{Understanding}
+    % & \multicolumn{2}{c}{Speaking}
+    % & Writing \\ \midrule
+    % & & Spoken & Spoken & \\
+    % Listening         & Reading        &  interaction &  production &
+    % -
+    % \\
+    \hspace{0.43cm}  B2 &
+    \hspace{0.88cm}  C1 \   &
+    \hspace{0.8cm}  B2  &
+    \hspace{0.8cm}   B2 \hspace{0.32cm}
+    \\
+    \bottomrule
+  \end{tabular}
+}{}
+
+\section{References}
+\emph{For a reference letter please contact the following persons.}
+
+\begin{cvcolumns}
+  \cvcolumn{}{
+    \begin{itemize}
+    \item Michele Benzi (Scuola Normale Superiore, Italy)
+    \item Giuseppe Buttazzo (University of Pisa, Italy)
+    \item Franco Cardin (University of Padova, Italy)
+    \item Malgorzata Peszynska (Oregon State University, USA)
+    \item Mario Putti (University of Padova, Italy)
+    \end{itemize}
+  }
+\end{cvcolumns}
+
+
+\newpage
+
+
+
+
+   %\bibliographystyleother{plainyr-rev}
+   %\bibliographyother{biblio}
+
+
+\end{document}
+
+
+% end of file `template.tex'.
