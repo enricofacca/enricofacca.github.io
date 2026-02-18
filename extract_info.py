@@ -181,11 +181,13 @@ def parse_bib_entries(bib_file, strings_map, output_csv):
 
                 val_char = fields_str[val_start]
                 field_val = ""
+                raw_val_str = ""
                 next_field_idx = -1
 
                 if val_char == '{':
                     val_content, val_end = parse_nested_braces(fields_str, val_start)
                     field_val = val_content
+                    raw_val_str = val_content
                     comma_pos = fields_str.find(',', val_end)
                     next_field_idx = len(fields_str) if comma_pos == -1 else comma_pos + 1
                 elif val_char == '"':
@@ -195,6 +197,7 @@ def parse_bib_entries(bib_file, strings_map, output_csv):
 
                     if quote_end != -1:
                         field_val = fields_str[val_start+1:quote_end]
+                        raw_val_str = field_val
                         comma_pos = fields_str.find(',', quote_end)
                         next_field_idx = len(fields_str) if comma_pos == -1 else comma_pos + 1
                     else:
@@ -202,6 +205,7 @@ def parse_bib_entries(bib_file, strings_map, output_csv):
                 else:
                     comma_pos = fields_str.find(',', val_start)
                     raw_val = fields_str[val_start:].strip() if comma_pos == -1 else fields_str[val_start:comma_pos].strip()
+                    raw_val_str = raw_val
                     next_field_idx = len(fields_str) if comma_pos == -1 else comma_pos + 1
 
                     parts = [p.strip() for p in raw_val.split('#')]
@@ -215,14 +219,18 @@ def parse_bib_entries(bib_file, strings_map, output_csv):
                              resolved_parts.append(p)
                     field_val = "".join(resolved_parts)
 
-                fields[field_name.lower()] = field_val
+                fields[field_name.lower()] = (field_val, raw_val_str)
                 field_idx = next_field_idx
 
-            title = ' '.join(fields.get('title', '').split())
-            author = ' '.join(fields.get('author', '').split())
-            year = fields.get('year', '')
-            journal = fields.get('journal', '') or fields.get('booktitle', '')
-            note = fields.get('note', '')
+            title = ' '.join(fields.get('title', ('',''))[0].split())
+            author = ' '.join(fields.get('author', ('',''))[0].split())
+            year = fields.get('year', ('',''))[0]
+
+            journal_tuple = fields.get('journal') or fields.get('booktitle')
+            journal_full = journal_tuple[0] if journal_tuple else ''
+            journal_short = journal_tuple[1] if journal_tuple else ''
+
+            note = fields.get('note', ('',''))[0]
 
             submission = (entry_type == 'unpublished') or ("submitted" in note.lower() or "under review" in note.lower())
 
@@ -231,14 +239,15 @@ def parse_bib_entries(bib_file, strings_map, output_csv):
                 'Type': entry_type,
                 'Author': author,
                 'Title': title,
-                'Journal': journal,
+                'Journal Full': journal_full,
+                'Journal Short': journal_short,
                 'Year': year,
                 'Note': note,
                 'Submission': submission
             })
 
     with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['Key', 'Type', 'Author', 'Title', 'Journal', 'Year', 'Note', 'Submission']
+        fieldnames = ['Key', 'Type', 'Author', 'Title', 'Journal Full', 'Journal Short', 'Year', 'Note', 'Submission']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(entries)

@@ -19,7 +19,7 @@ def generate_publications_latex(publications):
             title = f"\\textbf{{{title}}}"
 
         author = p['Author']
-        journal = p['Journal']
+        journal = p['Journal Full']
         year = p['Year']
         note = p['Note']
 
